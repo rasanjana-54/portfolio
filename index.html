@@ -1,654 +1,722 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rasanjana Nimsara - AI Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Rasanjana Nimsara | Portfolio</title>
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="Rasanjana Nimsara — Full‑Stack Developer & IT Undergraduate. Projects, skills, and contact details." />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
+    <!-- CSS
+	============================================ -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/vendor/lightbox.css">
+    <link rel="stylesheet" href="assets/css/plugins/plugins.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(45deg, #0a0a0a, #1a1a2e, #16213e);
-            animation: gradientShift 8s ease-in-out infinite;
-        }
-
-        .bg-animation::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, #00d4ff20 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, #ff006e20 0%, transparent 50%),
-                        radial-gradient(circle at 40% 80%, #8338ec20 0%, transparent 50%);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background: linear-gradient(45deg, #0a0a0a, #1a1a2e, #16213e); }
-            50% { background: linear-gradient(45deg, #16213e, #0f3460, #1a1a2e); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-20px) rotate(1deg); }
-            66% { transform: translateY(10px) rotate(-1deg); }
-        }
-
-        /* Glassmorphism Cards */
-        .glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        .glass:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
-        }
-
-        /* Header */
-        .header {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-content h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #00d4ff, #ff006e, #8338ec);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-            animation: textGlow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes textGlow {
-            from { filter: drop-shadow(0 0 20px #00d4ff50); }
-            to { filter: drop-shadow(0 0 30px #ff006e50); }
-        }
-
-        .hero-content .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        .ai-badge {
-            display: inline-block;
-            background: linear-gradient(45deg, #00d4ff, #8338ec);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 2rem;
-            right: 2rem;
-            z-index: 1000;
-            display: flex;
-            gap: 1rem;
-        }
-
-        .nav-btn {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .nav-btn:hover {
-            background: rgba(0, 212, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Section styling */
-        .section {
-            padding: 5rem 0;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section-title {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            background: linear-gradient(135deg, #00d4ff, #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .skill-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .skill-card:hover::before {
-            left: 100%;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
-        }
-
-        /* Projects */
-        .project-card {
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .project-card h3 {
-            color: #00d4ff;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tag {
-            background: linear-gradient(45deg, #8338ec, #ff006e);
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        /* Contact */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .contact-card {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .contact-card:hover {
-            background: rgba(0, 212, 255, 0.1);
-            transform: scale(1.05);
-        }
-
-        .contact-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #00d4ff;
-        }
-
-        /* Floating Elements */
-        .floating-element {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            border: 2px solid rgba(0, 212, 255, 0.3);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-element:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-
-        .floating-element:nth-child(3) {
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-            
-            .nav {
-                position: relative;
-                top: auto;
-                right: auto;
-                justify-content: center;
-                margin: 2rem 0;
-            }
-            
-            .container {
-                padding: 0 1rem;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Scroll Indicator */
-        .scroll-indicator {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: 1000;
-        }
-
-        .scroll-progress {
-            height: 100%;
-            background: linear-gradient(90deg, #00d4ff, #ff006e, #8338ec);
-            width: 0%;
-            transition: width 0.1s ease;
-        }
-    </style>
 </head>
-<body>
-    <div class="bg-animation"></div>
-    <div class="scroll-indicator">
-        <div class="scroll-progress" id="scrollProgress"></div>
+
+<body class="position-relative spybody" data-spy="scroll" data-target=".navbar-example2" data-offset="150">
+    <div id="my_switcher" class="my_switcher">
+        <ul>
+            <li>
+                <a href="javascript: void(0);" data-theme="light" class="setColor light">
+                    <img src="assets/images/about/sun-01.svg" alt="Sun images"><span title="Light Mode"> Light</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript: void(0);" data-theme="dark" class="setColor dark">
+                    <img src="assets/images/about/vector.svg" alt="Vector Images"><span title="Dark Mode"> Dark</span>
+                </a>
+            </li>
+        </ul>
     </div>
-    
-    <!-- Floating Elements -->
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
+    <div class="main-page">
 
-    <!-- Navigation -->
-    <nav class="nav">
-        <a href="#about" class="nav-btn">About</a>
-        <a href="#skills" class="nav-btn">Skills</a>
-        <a href="#projects" class="nav-btn">Projects</a>
-        <a href="#contact" class="nav-btn">Contact</a>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="header">
-        <div class="hero-content">
-            <h1>RASANJANA NIMSARA</h1>
-            <p class="subtitle">Computer Scientist & Innovation Architect</p>
-            <p style="max-width: 600px; margin: 0 auto; font-size: 1.1rem; opacity: 0.8;">
-                Passionate about creating intelligent solutions that bridge the gap between complex algorithms and real-world impact through cutting-edge technology.
-            </p>
-        </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="glass">
-                <p style="font-size: 1.2rem; text-align: center; margin-bottom: 2rem;">
-                    As a passionate Computer Science undergraduate, I specialize in applying scientific computing principles, 
-                    software development expertise, and algorithmic thinking to solve real-world challenges. My focus lies in 
-                    creating software systems and data-driven applications that contribute to innovative technology solutions 
-                    with lasting impact.
-                </p>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                    <div>
-                        <h3 style="color: #00d4ff; margin-bottom: 1rem;">🎓 Education</h3>
-                        <p><strong>BSc (Hons) in Computer Science</strong><br>IIT Campus</p>
-                        <p style="margin-top: 1rem;"><strong>GCE Advanced Level (Mathematics Stream)</strong><br>Science College Colombo<br>Combined Mathematics, Physics, Chemistry (2020-2023)</p>
+        <!-- Start Header Area  -->
+        <header class="header-area header-style-two header--transparent header-light-mode header--sticky">
+            <div class="header-wrapper">
+                <div class="header-left d-flex align-items-center">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="assets/images/logo/logo-symbol-dark.png" alt="Creative Agency">
+                        </a>
                     </div>
-                    <div>
-                        <h3 style="color: #00d4ff; margin-bottom: 1rem;">📧 Contact Info</h3>
-                        <p>📱 +123-456-7890</p>
-                        <p>✉️ rasanjananimsara4@gmail.com</p>
-                        <p>📍 Mount Lavinia</p>
-                        <p>🌐 www.qwedrwfdovce.com</p>
+                    <nav class="mainmenunav d-lg-block ml--50">
+                        <div class="navbar-example2">
+                            <!-- Start Mainmanu Nav -->
+                            <ul class="mainmenu nav nav-pills onepagenav">
+                                <li class="nav-item current">
+                                    <a class="nav-link" href="#home">Home</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="#about">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#service">Service</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#portfolio">Portfolio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#blog">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#contact">Contact</a>
+                                </li>
+                            </ul>
+                            <!-- End Mainmanu Nav -->
+                        </div>
+                    </nav>
+                </div>
+                <div class="header-right">
+                    <div class="social-share-inner">
+                        <ul class="social-share social-style--2 d-flex justify-content-start liststyle">
+                            <li><a href="https://github.com/rasanjana-54" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/kodagoda-n-833302325" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="https://www.instagram.com/_im_rasi.__x__/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="header-btn ml_md--20 ml_sm--0"><a class="rn-btn" href="#contact"><span>Contact</span></a>
+                    </div>
+                    <!-- Start Humberger Menu  -->
+                    <div class="humberger-menu d-block d-lg-none pl--20 pl_sm--10">
+                        <span class="menutrigger text-white">
+                            <i data-feather="menu"></i>
+                        </span>
+                    </div>
+                    <!-- End Humberger Menu  -->
+                    <!-- Start Close Menu  -->
+                    <div class="close-menu d-block d-lg-none">
+                        <span class="closeTrigger">
+                            <i data-feather="x"></i>
+                        </span>
+                    </div>
+                    <!-- End Close Menu  -->
+                </div>
+            </div>
+        </header>
+        <!-- End Header Area  -->
+
+        <!-- Start Page Wrapper  -->
+        <main class="page-wrapper">
+            <!-- Start Slider Area  -->
+            <div class="rn-slider-area" id="home">
+                <!-- Start Single Slide  -->
+                <div class="slide personal-portfolio-slider slider-paralax slider-style-3 dark-slider hero-solid-bg d-flex align-items-center justify-content-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="inner text-start">
+                                    <span>Full‑Stack Developer • IT Undergraduate</span>
+                                    <h1 class="title">Hi, I’m <span>Rasanjana Nimsara</span></h1>
+                                    <h2>based in Colombo, Sri Lanka.</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Slide  -->
+                </div>
+            </div>
+            <!-- End Slider Area  -->
+
+            <!-- Start About Area  -->
+            <div class="about-area rn-section-gap bg_color--1" id="about">
+                <div class="about-wrapper">
+                    <div class="container">
+                        <div class="row row--35 align-items-center">
+                            <div class="col-lg-5">
+                                <div class="thumbnail">
+                                    <img class="w-100" src="assets/images/about/about-portrait.png?v=20260419-about" alt="Rasanjana Nimsara" />
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="about-inner inner pt--100 pt_sm--40 pt_md--40">
+                                    <div class="section-title">
+                                        <h2 class="title">About Me</h2>
+                                        <p class="description">I’m an IT undergraduate at <strong>IIT (Colombo)</strong>, passionate about building real‑world web applications and improving my problem‑solving skills. I enjoy working across the stack, from clean UI to reliable backend APIs.
+                                        </p>
+                                    </div>
+                                    <div class="tab-wrapper mt--30">
+                                        <ul class="nav nav-tabs tab-style--1" id="myTab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="mainskill" data-bs-toggle="tab" data-bs-target="#rn-mainskill" role="tab" aria-controls="mainskill" aria-selected="true">Main skills</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="awards" data-bs-toggle="tab" data-bs-target="#rn-awards" role="tab" aria-controls="awards" aria-selected="false">Projects</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="experience" data-bs-toggle="tab" data-bs-target="#rn-experience" role="tab" aria-controls="experience" aria-selected="false">Focus</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="education" data-bs-toggle="tab" data-bs-target="#rn-education" role="tab" aria-controls="education" aria-selected="false">Education</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="rn-mainskill" role="tabpanel" aria-labelledby="mainskill">
+                                                <div class="single-tab-content">
+                                                    <ul>
+                                                        <li><a href="#service">Frontend <span> - React, HTML, CSS</span></a>Responsive UI with clean layout and UX.</li>
+                                                        <li><a href="#service">Backend <span> - Node.js, Express</span></a>REST APIs, validation, and integration.</li>
+                                                        <li><a href="#service">Database <span> - MySQL</span></a>Data modeling and queries for real apps.</li>
+                                                        <li><a href="#service">Languages <span> - Java, JavaScript, Python</span></a>Problem‑solving and project work.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="rn-awards" role="tabpanel" aria-labelledby="awards">
+                                                <div class="single-tab-content">
+                                                    <ul>
+                                                        <li><a href="https://github.com/rasanjana-54/IIT-Student-Attendance-Manager" target="_blank" rel="noopener noreferrer">IIT Student Attendance Manager <span>- Python</span></a>Student management + attendance tracking.</li>
+                                                        <li><a href="https://github.com/rasanjana-54/python-Task-Manager" target="_blank" rel="noopener noreferrer">Task Manager <span>- Python</span></a>CRUD + persistence with JSON/files.</li>
+                                                        <li><a href="https://github.com/rasanjana-54/HealthWell-A-Progressive-Wellness-Hub" target="_blank" rel="noopener noreferrer">HealthWell <span>- Web</span></a>Multi‑page SDG 3 wellness site.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="rn-experience" role="tabpanel" aria-labelledby="experience">
+                                                <div class="single-tab-content">
+                                                    <ul>
+                                                        <li><a href="#portfolio">Building MERN projects<span> - practical full‑stack work</span></a>Ongoing</li>
+                                                        <li><a href="#service">Mastering DSA<span> - interview prep</span></a>Ongoing</li>
+                                                        <li><a href="#about">Improving system design basics<span> - clean architecture</span></a>Ongoing</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-pane fade" id="rn-education" role="tabpanel" aria-labelledby="education">
+                                                <div class="single-tab-content">
+                                                    <ul>
+                                                        <li><a href="#about">IT Undergraduate<span> - IIT Campus, Colombo</span></a>Present</li>
+                                                        <li><a href="#service">Full‑Stack Development<span> - self‑learning & projects</span></a>Ongoing</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End About Area  -->
+
+            <!-- Start Service Area  -->
+            <div class="rn-service-area rn-section-gap bg_color--5" id="service">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-title service-style--3 text-center mb--20 mb_sm--0 md_md--0">
+                                <h2 class="title">What I Do</h2>
+                                <p>Here are the areas I’m currently focusing on and improving through hands‑on projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <!-- Start Single Service  -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--40">
+                            <div class="single-service service__style--2 bg-color-gray">
+                                <a href="#portfolio">
+                                    <div class="service">
+                                        <div class="icon">
+                                            <i data-feather="cast"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h3 class="title">Frontend Development</h3>
+                                            <p>Responsive pages, UI components, and clean layouts with modern web practices.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End Single Service  -->
+
+                        <!-- Start Single Service  -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--40">
+                            <div class="single-service service__style--2 bg-color-gray">
+                                <a href="#portfolio">
+                                    <div class="service">
+                                        <div class="icon">
+                                            <i data-feather="layers"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h3 class="title">Backend APIs</h3>
+                                            <p>Building REST APIs with Node.js/Express, validation, and integrations.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End Single Service  -->
+
+                        <!-- Start Single Service  -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--40">
+                            <div class="single-service service__style--2 bg-color-gray">
+                                <a href="#portfolio">
+                                    <div class="service">
+                                        <div class="icon">
+                                            <i data-feather="users"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h3 class="title">Database & Data</h3>
+                                            <p>MySQL schema design, queries, and data handling for real projects.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End Single Service  -->
+
+                        <!-- Start Single Service  -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--40">
+                            <div class="single-service service__style--2 bg-color-gray">
+                                <a href="#about">
+                                    <div class="service">
+                                        <div class="icon">
+                                            <i data-feather="monitor"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h3 class="title">Problem Solving</h3>
+                                            <p>Practicing DSA and improving algorithmic thinking for interviews and projects.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End Single Service  -->
+
+                        <!-- Start Single Service  -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--40">
+                            <div class="single-service service__style--2 bg-color-gray">
+                                <a href="#about">
+                                    <div class="service">
+                                        <div class="icon">
+                                            <i data-feather="camera"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h3 class="title">Tools & Workflow</h3>
+                                            <p>Git/GitHub, VS Code, Postman—clean commits and practical debugging.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End Single Service  -->
+
+                        <!-- Start Single Service  -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--40">
+                            <div class="single-service service__style--2 bg-color-gray">
+                                <a href="#contact">
+                                    <div class="service">
+                                        <div class="icon">
+                                            <i data-feather="activity"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h3 class="title">Open to Opportunities</h3>
+                                            <p>Internship & collaboration friendly—feel free to reach out.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End Single Service  -->
+                    </div>
+                </div>
+            </div>
+            <!-- Start Service Area  -->
+
+            <!-- Start Portfolio Area  -->
+            <div class="rn-portfolio-area rn-section-gap bg_color--1" id="portfolio">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-title section-title--3 text-center mb--30">
+                                <h2 class="title">Projects</h2>
+                                <p>Some highlights from my GitHub projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Start Single Portfolio  -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
+                            <div class="portfolio text-center">
+                                <div class="thumbnail-inner">
+                                    <div class="thumbnail image-1"></div>
+                                    <div class="bg-blr-image image-1"></div>
+                                </div>
+                                <div class="content">
+                                    <div class="inner">
+                                        <p>Full‑Stack</p>
+                                        <h4><a href="https://github.com/ThimethZ03/Govi-Sahaya" target="_blank" rel="noopener noreferrer">Govi Sahaya</a>
+                                        </h4>
+                                        <div class="portfolio-button">
+                                            <a class="rn-btn" href="https://github.com/ThimethZ03/Govi-Sahaya" target="_blank" rel="noopener noreferrer">View Repo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Portfolio  -->
+
+                        <!-- Start Single Portfolio  -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
+                            <div class="portfolio text-center">
+                                <div class="thumbnail-inner">
+                                    <div class="thumbnail image-2"></div>
+                                    <div class="bg-blr-image image-2"></div>
+                                </div>
+                                <div class="content">
+                                    <div class="inner">
+                                        <p>Web</p>
+                                        <h4><a href="https://github.com/rasanjana-54/powerfit-gym" target="_blank" rel="noopener noreferrer">PowerFit Gym</a>
+                                        </h4>
+                                        <div class="portfolio-button">
+                                            <a class="rn-btn" href="https://github.com/rasanjana-54/powerfit-gym" target="_blank" rel="noopener noreferrer">View Repo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Portfolio  -->
+
+                        <!-- Start Single Portfolio  -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
+                            <div class="portfolio text-center">
+                                <div class="thumbnail-inner">
+                                    <div class="thumbnail image-3"></div>
+                                    <div class="bg-blr-image image-3"></div>
+                                </div>
+                                <div class="content">
+                                    <div class="inner">
+                                        <p>TypeScript</p>
+                                        <h4><a href="https://github.com/rasanjana-54/english-genius-lms" target="_blank" rel="noopener noreferrer">English Genius LMS</a>
+                                        </h4>
+                                        <div class="portfolio-button">
+                                            <a class="rn-btn" href="https://github.com/rasanjana-54/english-genius-lms" target="_blank" rel="noopener noreferrer">View Repo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Portfolio  -->
+                        <!-- Start Single Portfolio  -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
+                            <div class="portfolio text-center">
+                                <div class="thumbnail-inner">
+                                    <div class="thumbnail image-4"></div>
+                                    <div class="bg-blr-image image-4"></div>
+                                </div>
+                                <div class="content">
+                                    <div class="inner">
+                                        <p>Data</p>
+                                        <h4><a href="https://github.com/rasanjana-54/EuroFlight-Analyst-CSV-Data-Processing-Visualization" target="_blank" rel="noopener noreferrer">EuroFlight Analyst</a>
+                                        </h4>
+                                        <div class="portfolio-button">
+                                            <a class="rn-btn" href="https://github.com/rasanjana-54/EuroFlight-Analyst-CSV-Data-Processing-Visualization" target="_blank" rel="noopener noreferrer">View Repo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Portfolio  -->
+
+                        <!-- Start Single Portfolio  -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
+                            <div class="portfolio text-center">
+                                <div class="thumbnail-inner">
+                                    <div class="thumbnail image-5"></div>
+                                    <div class="bg-blr-image image-5"></div>
+                                </div>
+                                <div class="content">
+                                    <div class="inner">
+                                        <p>Web</p>
+                                        <h4><a href="https://github.com/rasanjana-54/HealthWell-A-Progressive-Wellness-Hub" target="_blank" rel="noopener noreferrer">HealthWell</a>
+                                        </h4>
+                                        <div class="portfolio-button">
+                                            <a class="rn-btn" href="https://github.com/rasanjana-54/HealthWell-A-Progressive-Wellness-Hub" target="_blank" rel="noopener noreferrer">View Repo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Portfolio  -->
+
+                        <!-- Start Single Portfolio  -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
+                            <div class="portfolio text-center">
+                                <div class="thumbnail-inner">
+                                    <div class="thumbnail image-6"></div>
+                                    <div class="bg-blr-image image-6"></div>
+                                </div>
+                                <div class="content">
+                                    <div class="inner">
+                                        <p>TypeScript</p>
+                                        <h4><a href="https://github.com/rasanjana-54/AuraHealth-CradleToGrave-System" target="_blank" rel="noopener noreferrer">AuraHealth</a>
+                                        </h4>
+                                        <div class="portfolio-button">
+                                            <a class="rn-btn" href="https://github.com/rasanjana-54/AuraHealth-CradleToGrave-System" target="_blank" rel="noopener noreferrer">View Repo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Portfolio  -->
+
+                        <!-- Start Single Portfolio  -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
+                            <div class="portfolio text-center">
+                                <div class="thumbnail-inner">
+                                    <div class="thumbnail image-7"></div>
+                                    <div class="bg-blr-image image-7"></div>
+                                </div>
+                                <div class="content">
+                                    <div class="inner">
+                                        <p>Python</p>
+                                        <h4><a href="https://github.com/rasanjana-54/IIT-Student-Attendance-Manager" target="_blank" rel="noopener noreferrer">IIT Student Attendance Manager</a>
+                                        </h4>
+                                        <div class="portfolio-button">
+                                            <a class="rn-btn" href="https://github.com/rasanjana-54/IIT-Student-Attendance-Manager" target="_blank" rel="noopener noreferrer">View Repo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Portfolio  -->
+
+                        <!-- Start Single Portfolio  -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
+                            <div class="portfolio text-center">
+                                <div class="thumbnail-inner">
+                                    <div class="thumbnail image-8"></div>
+                                    <div class="bg-blr-image image-8"></div>
+                                </div>
+                                <div class="content">
+                                    <div class="inner">
+                                        <p>Python</p>
+                                        <h4><a href="https://github.com/rasanjana-54/python-Task-Manager" target="_blank" rel="noopener noreferrer">Task Manager</a>
+                                        </h4>
+                                        <div class="portfolio-button">
+                                            <a class="rn-btn" href="https://github.com/rasanjana-54/python-Task-Manager" target="_blank" rel="noopener noreferrer">View Repo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Portfolio  -->
+
+                        <!-- Start Single Portfolio  -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
+                            <div class="portfolio text-center">
+                                <div class="thumbnail-inner">
+                                    <div class="thumbnail image-9"></div>
+                                    <div class="bg-blr-image image-9"></div>
+                                </div>
+                                <div class="content">
+                                    <div class="inner">
+                                        <p>Web</p>
+                                        <h4><a href="https://github.com/rasanjana-54" target="_blank" rel="noopener noreferrer">More on GitHub</a>
+                                        </h4>
+                                        <div class="portfolio-button">
+                                            <a class="rn-btn" href="https://github.com/rasanjana-54" target="_blank" rel="noopener noreferrer">Open Profile</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Portfolio  -->
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="view-more-btn mt--60 mt_sm--30 text-center">
+                                <a class="rn-button-style--2 btn_solid" href="https://github.com/rasanjana-54" target="_blank" rel="noopener noreferrer">View More on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Portfolio Area  -->
+
+            <!-- Start Blog Area  -->
+            <div class="rn-blog-area rn-section-gap bg_color--5" id="blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-title section-title--3 text-center mb--30">
+                                <h2 class="title">Highlights</h2>
+                                <p>What I’m focusing on right now.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Start Blog Area  -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="blog blog-style--1">
+                                <div class="thumbnail">
+                                    <a href="#service">
+                                        <img class="w-100" src="assets/images/blog/highlight-01.jpg?v=20260418" alt="MERN stack projects highlight" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <p class="blogtype">Learning</p>
+                                    <h4 class="title"><a href="#service">MERN stack projects</a>
+                                    </h4>
+                                    <div class="blog-btn">
+                                        <a class="rn-btn text-white" href="#portfolio">See Projects</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Blog Area  -->
+
+                        <!-- Start Blog Area  -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="blog blog-style--1">
+                                <div class="thumbnail">
+                                    <a href="#about">
+                                        <img class="w-100" src="assets/images/blog/highlight-02.jpg?v=20260418" alt="Data structures and algorithms highlight" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <p class="blogtype">Growth</p>
+                                    <h4 class="title"><a href="#about">Data structures & algorithms</a>
+                                    </h4>
+                                    <div class="blog-btn">
+                                        <a class="rn-btn text-white" href="#contact">Contact</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Blog Area  -->
+
+                        <!-- Start Blog Area  -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="blog blog-style--1">
+                                <div class="thumbnail">
+                                    <a href="#contact">
+                                        <img class="w-100" src="assets/images/blog/highlight-03.jpg?v=20260418" alt="Internship opportunities highlight" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <p class="blogtype">Opportunities</p>
+                                    <h4 class="title"><a href="#contact">Open for internships</a>
+                                    </h4>
+                                    <div class="blog-btn">
+                                        <a class="rn-btn text-white" href="#contact">Reach Out</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Blog Area  -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Blog Area  -->
+
+            <!-- Start Contact Area  -->
+            <div class="rn-contact-area rn-section-gap bg_color--1" id="contact">
+                <div class="contact-form--1">
+                    <div class="container">
+                        <div class="row row--35 align-items-start">
+                            <div class="col-lg-6 order-2 order-lg-1">
+                                <div class="section-title text-start mb--50 mb_sm--30 mb_md--30">
+                                    <h2 class="title">Contact</h2>
+                                    <p class="description">Want to collaborate or discuss an opportunity? Connect with me on
+                                        <a href="https://github.com/rasanjana-54" target="_blank" rel="noopener noreferrer">GitHub</a>,
+                                        <a href="https://www.linkedin.com/in/kodagoda-n-833302325" target="_blank" rel="noopener noreferrer">LinkedIn</a>, or
+                                        <a href="https://www.instagram.com/_im_rasi.__x__/" target="_blank" rel="noopener noreferrer">Instagram</a>.
+                                    </p>
+                                </div>
+                                <div class="form-wrapper">
+                                    <form>
+                                        <label for="item01">
+                                            <input type="text" name="name" id="item01" placeholder="Your Name *" />
+                                        </label>
+
+                                        <label for="item02">
+                                            <input type="text" name="email" id="item02" placeholder="Your email *">
+                                        </label>
+
+                                        <label for="item03">
+                                            <input type="text" name="subject" id="item03" placeholder="Write a Subject">
+                                        </label>
+                                        <label for="item04">
+                                            <textarea type="text" id="item04" name="message" placeholder="Your Message"></textarea>
+                                        </label>
+                                        <button class="rn-button-style--2 btn_solid" type="submit" value="submit" name="submit" id="mc-embedded-subscribe">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 order-1 order-lg-2">
+                                <div class="thumbnail mb_md--30 mb_sm--30">
+                                    <img src="assets/images/about/about-portrait.png?v=20260419-about" alt="Rasanjana Nimsara" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Contact Area  -->
+        </main>
+        <!-- End Page Wrapper  -->
+        <!-- Start Footer Style Two  -->
+        <div class="footer-style-2 ptb--30 bg_image bg_image--1" data-black-overlay="6">
+            <div class="wrapper plr--50 plr_sm--20">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="inner">
+                            <div class="logo text-center text-sm-start mb_sm--20">
+                                <a href="#">
+                                    <img src="assets/images/logo/logo.png" alt="Logo images" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="inner text-center">
+                            <ul class="social-share rn-lg-size d-flex justify-content-center liststyle">
+                                <li><a href="https://github.com/rasanjana-54" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/kodagoda-n-833302325" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="https://www.instagram.com/_im_rasi.__x__/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                        <div class="inner text-lg-end text-center mt_md--20 mt_sm--20">
+                            <div class="text">
+                                <p>Copyright © 2026 Rasanjana Nimsara. All Rights Reserved.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title">Skills & Expertise</h2>
-            
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3 style="color: #00d4ff; margin-bottom: 1rem;">💻 Programming Languages</h3>
-                    <p>Python • Java • JavaScript<br>HTML • CSS • OOP</p>
-                </div>
-                
-                <div class="skill-card">
-                    <h3 style="color: #ff006e; margin-bottom: 1rem;">🗄️ Database Management</h3>
-                    <p>MySQL • Data Modeling<br>Query Optimization</p>
-                </div>
-                
-                <div class="skill-card">
-                    <h3 style="color: #8338ec; margin-bottom: 1rem;">🧠 Problem Solving</h3>
-                    <p>Logical Thinking<br>Algorithm Design<br>System Analysis</p>
-                </div>
-                
-                <div class="skill-card">
-                    <h3 style="color: #00d4ff; margin-bottom: 1rem;">👥 Collaboration</h3>
-                    <p>Team Leadership<br>Project Management<br>Agile Development</p>
-                </div>
-                
-                <div class="skill-card">
-                    <h3 style="color: #ff006e; margin-bottom: 1rem;">🎯 Adaptability</h3>
-                    <p>Quick Learning<br>Technology Adoption<br>Innovation Mindset</p>
-                </div>
-                
-                <div class="skill-card">
-                    <h3 style="color: #8338ec; margin-bottom: 1rem;">🏆 Certifications</h3>
-                    <p>Advanced Python<br>Web Development<br>English Language (Distinction)</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            
-            <div class="project-card glass">
-                <h3>🎓 Student Attendance Management System</h3>
-                <p>Developed a comprehensive terminal-based student attendance management system using Python with advanced features including dynamic data storage, robust input validation, and intelligent filtering capabilities.</p>
-                
-                <p style="margin: 1rem 0;"><strong>Key Features:</strong></p>
-                <ul style="margin-left: 2rem; margin-bottom: 1rem;">
-                    <li>Menu-driven interface for seamless user experience</li>
-                    <li>Dynamic in-memory data storage with Python dictionaries</li>
-                    <li>Advanced data validation and error handling</li>
-                    <li>Date-range based attendance queries</li>
-                    <li>Centre-specific student filtering system</li>
-                </ul>
-                
-                <div class="project-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">CLI Application</span>
-                    <span class="tag">Data Management</span>
-                    <span class="tag">2024</span>
-                </div>
-            </div>
-            
-            <div class="project-card glass">
-                <h3>📋 Personal Task Manager Application</h3>
-                <p>Created a sophisticated desktop task management application that evolved from a command-line interface to a feature-rich GUI application using Python and Tkinter.</p>
-                
-                <p style="margin: 1rem 0;"><strong>Technical Highlights:</strong></p>
-                <ul style="margin-left: 2rem; margin-bottom: 1rem;">
-                    <li>Advanced GUI design with sortable Treeview display</li>
-                    <li>Data persistence with JSON structured storage</li>
-                    <li>Comprehensive task CRUD operations</li>
-                    <li>Smart filtering by name, priority, and due date</li>
-                    <li>Robust error handling and data integrity</li>
-                </ul>
-                
-                <div class="project-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Tkinter</span>
-                    <span class="tag">GUI Development</span>
-                    <span class="tag">JSON</span>
-                </div>
-            </div>
-            
-            <div class="project-card glass">
-                <h3>🌐 Collaborative Website Development</h3>
-                <p>Led a team-based web development project following industry best practices, focusing on accessibility, maintainability, and seamless user experience.</p>
-                
-                <p style="margin: 1rem 0;"><strong>Achievements:</strong></p>
-                <ul style="margin-left: 2rem; margin-bottom: 1rem;">
-                    <li>Implemented responsive design with modern web standards</li>
-                    <li>Developed interactive components with optimal user experience</li>
-                    <li>Applied accessibility guidelines for inclusive design</li>
-                    <li>Established efficient project organization and asset management</li>
-                    <li>Collaborated effectively using version control systems</li>
-                </ul>
-                
-                <div class="project-tags">
-                    <span class="tag">HTML5</span>
-                    <span class="tag">CSS3</span>
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">Team Collaboration</span>
-                    <span class="tag">Responsive Design</span>
-                </div>
-            </div>
-            
-            <div class="project-card glass">
-                <h3>🌾 Govi Sahaya - Agriculture Support App</h3>
-                <p>Developed an AI-powered mobile application for agricultural use, specifically designed for Sri Lankan farmers to instantly diagnose crop diseases from uploaded images. The application provides targeted, localized treatment guidance to improve crop yields and health.</p>
-                
-                <p style="margin: 1rem 0;"><strong>Key Features:</strong></p>
-                <ul style="margin-left: 2rem; margin-bottom: 1rem;">
-                    <li>AI-powered image recognition for instant crop disease diagnosis</li>
-                    <li>Localized treatment recommendations tailored for Sri Lankan agriculture</li>
-                    <li>Highly user-centric and multilingual interface for accessibility</li>
-                    <li>Comprehensive farming tips and seasonal alerts system</li>
-                    <li>Searchable crop knowledge library with actionable information</li>
-                </ul>
-                
-                <div class="project-tags">
-                    <span class="tag">AI/ML</span>
-                    <span class="tag">Mobile Development</span>
-                    <span class="tag">Image Recognition</span>
-                    <span class="tag">Agricultural Tech</span>
-                    <span class="tag">2025</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <div class="contact-icon">📧</div>
-                    <h3>Email</h3>
-                    <p>rasanjananimsara4@gmail.com</p>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">📱</div>
-                    <h3>Phone</h3>
-                    <p>+123-456-7890</p>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">📍</div>
-                    <h3>Location</h3>
-                    <p>Mount Lavinia, Sri Lanka</p>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">🌐</div>
-                    <h3>Portfolio</h3>
-                    <p>www.qwedrwfdovce.com</p>
-                </div>
-            </div>
-            
-            <div class="glass" style="text-align: center; margin-top: 3rem;">
-                <h3 style="color: #00d4ff; margin-bottom: 1rem;">Ready to Innovate Together?</h3>
-                <p style="font-size: 1.1rem; opacity: 0.9;">
-                    I'm always excited to discuss new opportunities, innovative projects, and collaborative ventures. 
-                    Let's create something amazing together!
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Scroll progress indicator
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset;
-            const docHeight = document.body.offsetHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            document.getElementById('scrollProgress').style.width = scrollPercent + '%';
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = '0.2s';
-                    entry.target.style.animationFillMode = 'both';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Parallax effect for floating elements
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            
-            document.querySelectorAll('.floating-element').forEach((element, index) => {
-                const speed = (index + 1) * 0.1;
-                element.style.transform = `translateY(${rate * speed}px) rotate(${scrolled * 0.1}deg)`;
-            });
-        });
-
-        // Add typing effect to hero title
-        const title = document.querySelector('.hero-content h1');
-        const titleText = title.textContent;
-        title.textContent = '';
-        let i = 0;
-        
-        const typeWriter = () => {
-            if (i < titleText.length) {
-                title.textContent += titleText.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        };
-        
-        // Start typing effect after a delay
-        setTimeout(typeWriter, 1000);
-    </script>
+        <!-- End Footer Style Two  -->
+    </div>
+    <!-- JS
+============================================ -->
+    <!-- Modernizer JS -->
+    <script src="assets/js/vendor/modernizr.min.js"></script>
+    <!-- jQuery JS -->
+    <script src="assets/js/vendor/jquery.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/stellar.js"></script>
+    <script src="assets/js/vendor/particles.js"></script>
+    <script src="assets/js/vendor/masonry.js"></script>
+    <script src="assets/js/vendor/stickysidebar.js"></script>
+    <script src="assets/js/plugins/plugins.js"></script>
+    <script src="assets/js/vendor/js.cookie.js"></script>
+    <script src="assets/js/vendor/jquery.style.switcher.js"></script>
+    <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
 </body>
+
 </html>
