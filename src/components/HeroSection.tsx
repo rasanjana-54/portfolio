@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Download, ArrowRight, Github, Linkedin, Mail, Phone, MapPin, Sparkles, Code2, Cpu, Smartphone, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
+import profilePhoto from '../assets/images/profile_photo.png';
 
 interface HeroSectionProps {
   openResumeModal: () => void;
@@ -165,7 +166,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ openResumeModal }) => 
               {/* Profile Image */}
               <div className="relative rounded-2xl overflow-hidden aspect-[4/5] group">
                 <img
-                  src="/src/assets/images/profile_photo_1785242901966.jpg"
+                  src={profilePhoto}
                   alt="Kodagoda Vithanage Rasanjana Nimsara"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />

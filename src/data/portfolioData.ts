@@ -1,4 +1,8 @@
 import { Project, SkillItem, ExperienceItem, CertificateItem, ServiceItem, TestimonialItem } from '../types';
+import goviSahayaImg from '../assets/images/govi_sahaya_app_1785242917976.jpg';
+import lifepulseImg from '../assets/images/lifepulse_health_1785242929950.jpg';
+import englishGeniusImg from '../assets/images/english_genius_lms_1785242942676.jpg';
+import villaBookingImg from '../assets/images/villa_booking_web_1785242957149.jpg';
 
 export const personalInfo = {
   fullName: 'Kodagoda Vithanage Rasanjana Nimsara',
@@ -89,7 +93,7 @@ export const projectsData: Project[] = [
     title: 'Govi Sahaya – AI Agriculture Support App',
     category: 'mobile_ai',
     subtitle: 'AI-powered Flutter Mobile App for Crop Disease Detection',
-    image: '/src/assets/images/govi_sahaya_app_1785242917976.jpg',
+    image: goviSahayaImg,
     tags: ['Flutter', 'Dart', 'Firebase', 'AI Image Processing', 'Mobile App'],
     description: 'An AI-powered mobile application designed for Sri Lankan farming communities to detect crop diseases instantly using image recognition, weather alerts, and multilingual farming insights.',
     fullDetails: 'Govi Sahaya is a mobile solution built specifically for agricultural decision-making. Using smartphone camera integration and computer vision AI model processing, farmers can capture a picture of an unhealthy crop leaf and instantly receive diagnosis, recommended organic or chemical treatments, and severity levels. It features a real-time Firebase database for weather updates, regional agricultural alerts, and a offline-friendly knowledge base.',
@@ -115,7 +119,7 @@ export const projectsData: Project[] = [
     title: 'LifePulse – Lifelong Health Navigator',
     category: 'fullstack',
     subtitle: 'Full-Stack Patient Records System with Google Gemini AI Insights',
-    image: '/src/assets/images/lifepulse_health_1785242929950.jpg',
+    image: lifepulseImg,
     tags: ['React', 'TypeScript', 'Node.js', 'Express.js', 'Google Gemini AI', 'SQLite', 'Tailwind CSS'],
     description: 'Comprehensive health management dashboard that securely stores lifelong patient records, analyzes medical vitals, and leverages Google Gemini AI for predictive health recommendations.',
     fullDetails: 'LifePulse is a full-stack digital health system built with React, Node.js, and SQLite. It provides interactive medical dashboards using Recharts to visualize vitals like blood pressure, blood glucose, and heart rate history over time. Integrating Google Gemini AI, it parses patient health logs to provide personalized wellness suggestions, symptom trends, and preventive health advice.',
@@ -141,7 +145,7 @@ export const projectsData: Project[] = [
     title: 'English Genius LMS',
     category: 'fullstack',
     subtitle: 'Interactive E-Learning Platform with Role-Based Firebase Auth',
-    image: '/src/assets/images/english_genius_lms_1785242942676.jpg',
+    image: englishGeniusImg,
     tags: ['React', 'TypeScript', 'Firebase', 'Tailwind CSS', 'Context API'],
     description: 'Full-stack Learning Management System offering interactive language lessons, document sharing, assignment tracking, and role-based student/teacher dashboards.',
     fullDetails: 'English Genius LMS is an online education platform constructed with React 19, TypeScript, and Firebase. It features multi-role authentication distinguishing between students, instructors, and administrators. Instructors can publish video/PDF lessons, host online quizzes, and upload course materials, while students can track course progress through interactive visual dashboards.',
@@ -167,7 +171,7 @@ export const projectsData: Project[] = [
     title: 'Serene Villa & Hotel Booking Platform',
     category: 'frontend',
     subtitle: 'Luxury Hotel & Villa Reservation Web Application',
-    image: '/src/assets/images/villa_booking_web_1785242957149.jpg',
+    image: villaBookingImg,
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Responsive Design'],
     description: 'An Awwwards-styled luxury villa booking website featuring interactive room filters, dynamic date availability picker, high-res image galleries, and instant reservation inquiry handling.',
     fullDetails: 'Designed for high-end boutique hotels and Sri Lankan beach villas, this web application delivers an immersive booking experience. It includes photo carousels, amenity tags, location map previews, guest reviews, and interactive booking modal forms with automated confirmation summaries.',
@@ -193,7 +197,7 @@ export const projectsData: Project[] = [
     title: 'Smart Campus REST API Platform',
     category: 'backend',
     subtitle: 'Backend Microservices Architecture & Postman Test Suite',
-    image: '/src/assets/images/lifepulse_health_1785242929950.jpg',
+    image: lifepulseImg,
     tags: ['Node.js', 'Express.js', 'Postman', 'REST API', 'JSON Validation'],
     description: 'Robust backend REST API suite built for university campus management including student enrollment, course registration, attendance logging, and automated API validation.',
     fullDetails: 'Engineered as a clean Node.js / Express backend service for campus administration. Features modular endpoint routing, thorough HTTP status validation, request payload sanitization, and a complete Postman collection test runner ensuring zero breaking regressions across CRUD operations.',
@@ -219,7 +223,7 @@ export const projectsData: Project[] = [
     title: 'Personal Task Manager Application',
     category: 'backend',
     subtitle: 'Python Desktop GUI with Persistent Data Storage',
-    image: '/src/assets/images/english_genius_lms_1785242942676.jpg',
+    image: englishGeniusImg,
     tags: ['Python', 'Tkinter', 'JSON', 'Desktop GUI'],
     description: 'A feature-rich Python desktop application with full CRUD task management, priority tags, deadline reminders, and JSON-based file persistence.',
     fullDetails: 'Built using Python and Tkinter for cross-platform desktop task organization. Allows users to categorize tasks, mark priorities (High, Medium, Low), filter by status, and save state reliably across sessions using structured JSON database handling.',
@@ -239,7 +243,7 @@ export const projectsData: Project[] = [
     title: 'Student Attendance Management System',
     category: 'backend',
     subtitle: 'Command Line Python System for Attendance Tracking',
-    image: '/src/assets/images/lifepulse_health_1785242929950.jpg',
+    image: lifepulseImg,
     tags: ['Python', 'CLI', 'Data Structures'],
     description: 'Command line tool engineered in Python for student enrollment, class attendance logging, statistical filtering, and automated report generation.',
     fullDetails: 'Efficient CLI system implementing robust dictionary data handling, input sanitization, and text report exports for academic institutions.',
