@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { User, GraduationCap, Target, Award, CheckCircle, Phone, Mail, UserCheck, Sparkles, BookOpen } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
+import aboutProfilePhoto from '../assets/images/about_profile_photo.jpg';
 
 export const AboutSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'overview' | 'education' | 'strengths' | 'references'>('overview');
@@ -87,27 +88,18 @@ export const AboutSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="lg:col-span-5 space-y-4">
-                <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-900/30 via-slate-900/80 to-purple-900/30 border border-blue-500/30 space-y-4">
-                  <h4 className="font-bold text-lg text-white flex items-center gap-2">
-                    <BookOpen className="w-5 h-5 text-cyan-400" />
-                    <span>Areas of Interest</span>
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {personalInfo.interests.map((interest, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1.5 rounded-lg bg-blue-500/20 border border-blue-500/30 text-xs font-semibold text-blue-300"
-                      >
-                        {interest}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="pt-2">
-                    <p className="text-xs text-gray-400">
-                      "Dedicated to crafting user-centric software solutions that deliver high real-world value."
-                    </p>
-                  </div>
+              <div className="lg:col-span-5 flex justify-center items-center">
+                <div className="relative w-full max-w-sm aspect-square rounded-3xl overflow-hidden border border-blue-500/30 shadow-2xl group bg-[#0b1120]">
+                  {/* Glowing Ambient Glow */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 rounded-3xl blur-md opacity-50 group-hover:opacity-75 transition duration-500 pointer-events-none" />
+                  
+                  <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#0b1120] via-transparent to-transparent opacity-60 pointer-events-none" />
+
+                  <img
+                    src={aboutProfilePhoto}
+                    alt="About Rasanjana Nimsara"
+                    className="w-full h-full object-cover object-top relative z-0 group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
               </div>
             </div>

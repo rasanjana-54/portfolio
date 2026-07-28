@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Download, ArrowRight, Github, Linkedin, Mail, Phone, MapPin, Sparkles, Code2, Cpu, Smartphone, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
-import profilePhoto from '../assets/images/profile_photo.png';
+import profilePhoto from '../assets/images/profile_photo_1785242901966.jpg';
 
 interface HeroSectionProps {
   openResumeModal: () => void;
