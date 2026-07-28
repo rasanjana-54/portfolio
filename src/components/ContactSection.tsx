@@ -30,7 +30,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedServiceP
     e.preventDefault();
     setIsSubmitting(true);
 
-    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || "a9f0b9ab-fac5-4268-beac-ab21ee48b145";
 
     fetch("https://api.web3forms.com/submit", {
       method: "POST",
