@@ -8,7 +8,6 @@ import { ExperienceSection } from './components/ExperienceSection';
 import { EducationSection } from './components/EducationSection';
 import { CertificatesSection } from './components/CertificatesSection';
 import { ServicesSection } from './components/ServicesSection';
-import { TestimonialsSection } from './components/TestimonialsSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ResumeModal } from './components/ResumeModal';
@@ -37,7 +36,7 @@ export default function App() {
   // Scroll section observer
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'skills', 'projects', 'experience', 'education', 'certifications', 'services', 'testimonials', 'contact'];
+      const sections = ['about', 'skills', 'projects', 'experience', 'education', 'certifications', 'services', 'contact'];
       const scrollPos = window.scrollY + 250;
 
       for (const sectionId of sections) {
@@ -91,7 +90,6 @@ export default function App() {
         <EducationSection />
         <CertificationsSection />
         <ServicesSection onSelectService={handleSelectService} />
-        <TestimonialsSection />
         <ContactSection selectedServicePreset={selectedServicePreset} />
       </main>
 
