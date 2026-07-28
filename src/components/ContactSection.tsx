@@ -30,20 +30,32 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedServiceP
     e.preventDefault();
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
 
-      // Trigger Confetti Celebration
-      confetti({
-        particleCount: 80,
-        spread: 70,
-        origin: { y: 0.6 },
-      });
-
-      // Reset form after delay
-      setTimeout(() => {
-        setIsSuccess(false);
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        access_key: accessKey,
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject || `Portfolio Message from ${formData.name}`,
+        service: formData.serviceNeeded,
+        message: formData.message
+      })
+    })
+    .then(async (response) => {
+      const res = await response.json();
+      if (response.status === 200 || res.success) {
+        setIsSuccess(true);
+        confetti({
+          particleCount: 80,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
         setFormData({
           name: '',
           email: '',
@@ -51,8 +63,21 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedServiceP
           serviceNeeded: 'General Inquiry',
           message: '',
         });
+      } else {
+        console.error("Form submission failed:", res);
+        alert(res.message || "Failed to send message. Please verify your Access Key.");
+      }
+    })
+    .catch((error) => {
+      console.error("Error submitting form:", error);
+      alert("Error sending message. Please check your internet connection.");
+    })
+    .finally(() => {
+      setIsSubmitting(false);
+      setTimeout(() => {
+        setIsSuccess(false);
       }, 4000);
-    }, 1200);
+    });
   };
 
   return (
