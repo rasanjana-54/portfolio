@@ -2,6 +2,11 @@
 
 This folder is a static HTML/CSS/JS portfolio.
 
+## Featured Projects
+
+- **Ceylon Royal Parade**: [ceylon-royal-parade.vercel.app](https://ceylon-royal-parade.vercel.app/)
+- **Urban Escape Villa**: [urbanescapevillahomagama.lk](https://www.urbanescapevillahomagama.lk/)
+
 ## GitHub Pages
 
 1. Push this folder to a GitHub repository.
@@ -13,3 +18,4 @@ This folder is a static HTML/CSS/JS portfolio.
 Notes:
 - `index.html` is the homepage entrypoint for GitHub Pages.
 - `04-landing-personal-portfolio-02.html` is kept as the original template filename.
+
