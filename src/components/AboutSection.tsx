@@ -19,7 +19,7 @@ export const AboutSection: React.FC = () => {
             About <span className="text-gradient-primary">Rasanjana Nimsara</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
-            Software Engineering Undergraduate at IIT Sri Lanka with a passion for problem solving, full-stack web architectures, mobile systems, and AI integration.
+            Computer Science Undergraduate at IIT Sri Lanka with a passion for problem solving, full-stack web architectures, mobile systems, and AI integration.
           </p>
         </div>
 
